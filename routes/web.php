@@ -31,4 +31,8 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/admin/login', 'LoginAction')->name('admin_login');
     Route::post('/admin/auth', 'AuthAction');
     Route::get('/admin/logout', 'LogoutAction');
+
+    Route::get('/admin/categories', 'CategoriesAction')->name('admin_categories');
+    Route::post('/admin/add_category', 'AddCategoryAction');
+    Route::post('/admin/delete_category', 'DeleteCategoryAction');
 });

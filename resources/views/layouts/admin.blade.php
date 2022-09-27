@@ -486,7 +486,13 @@
                                     <li class="side-menu-label1"><a href="javascript:void(0)">E-Commerce</a></li>
                                     <li><a href="shop.html" class="slide-item"> Shop</a></li>
                                     <li><a href="shop-description.html" class="slide-item"> Product Details</a></li>
-                                    <li><a href="cart.html" class="slide-item"> Shopping Cart</a></li>
+
+                                    <li>
+                                        <a href="/admin/categories" class="slide-item"> 
+                                            Categories
+                                        </a>
+                                    </li>
+
                                     <li><a href="add-product.html" class="slide-item"> Add Product</a></li>
                                     <li><a href="wishlist.html" class="slide-item"> Wishlist</a></li>
                                     <li><a href="checkout.html" class="slide-item"> Checkout</a></li>
