@@ -23,6 +23,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategorySeeder::class,
             BoardSeeder::class,
+            RoleSeeder::class,
+            BoardImagesSeeder::class,
+            CompanySeeder::class,
+            BoardParametersSeeder::class,
+            UserSeeder::class,
+            DeliverySeeder::class,
         ]);
     }
 }

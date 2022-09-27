@@ -19,4 +19,7 @@ Route::controller(IndexController::class)->group(function(){
     Route::get('/category/{id}', "CategoryAction", function ($id){
         return $id;
     });
+    Route::get('/board/{id}', "BoardAction", function ($id){
+        return $id;
+    });
 });
