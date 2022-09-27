@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,12 @@ Route::controller(IndexController::class)->group(function(){
     Route::get('/board/{id}', "BoardAction", function ($id){
         return $id;
     });
+});
+
+Route::controller(AdminController::class)->group(function(){
+    Route::get('/admin', 'IndexAction')->name('dashboard');
+
+    Route::get('/admin/login', 'LoginAction')->name('admin_login');
+    Route::post('/admin/auth', 'AuthAction');
+    Route::get('/admin/logout', 'LogoutAction');
 });
