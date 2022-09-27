@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Validators\AuthAdminPanelValidator;
 use App\Http\Validators\AddCategoryValidator;
 use App\Http\Validators\DeleteCategoryValidator;
+use App\Http\Validators\UpdateCategoryValidator;
 
 use Illuminate\Http\Request;
 
@@ -75,7 +76,7 @@ class AdminController extends Controller
 
         $validator = AddCategoryValidator::addCategory($request);
 
-        if ($validator->fails()){
+        if($validator->fails()){
 			return redirect()->route('admin_categories')->withErrors($validator)->with('error', 'Ошибка. Не удалось добавить категорию!');
 		}
 
@@ -102,6 +103,26 @@ class AdminController extends Controller
         Category::where(['id' => $request->category_id])->delete();
 
 		return redirect()->route('admin_categories')->with('success', 'Категория успешно удалена!');
+    }
+
+    public function UpdateCategoryAction(Request $request){
+
+        
+        $validator = UpdateCategoryValidator::updateCategory($request);
+
+        if($validator->fails()){
+			return redirect()->route('admin_categories')->withErrors($validator)->with('error', 'Ошибка. Не удалось изменить категорию!');
+		}
+
+        $category = Category::where('id', $request->category_id)->first();
+        
+        $category->name = $request->category_name;
+        $category->description = $request->category_desc;
+
+    
+        $category->save();
+
+		return redirect()->route('admin_categories')->with('success', 'Категория успешно изменена!');
     }
     
 }

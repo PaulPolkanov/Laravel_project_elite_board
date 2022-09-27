@@ -1,6 +1,37 @@
 @extends('layouts/'.$template)
 
 @section('main_content')
+<div class="modal fade effect-fall" id="updateCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-center" role="document">
+        <div class="modal-content modal-content-demo">
+            <div class="modal-header">
+                <h6 class="modal-title">Редактирование категории</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">×</span></button>
+            </div>
+            <form action="/admin/update_category" method="post">
+                @csrf
+                <div class="modal-body">
+                    <input class="category_id" name="category_id" type="hidden"  value="" >
+                    <div class="wrap-input100 validate-input input-group">
+
+                        <input class="form-control ms-0 category_name" name="category_name" type="text" value="">
+
+                    </div>
+                    <div class="validate-input textarea-group">
+
+                        <textarea class="form-control ms-0 category_desc" name="category_desc" value=""></textarea>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Сохранить изменения</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade effect-scale" id="deleteCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered text-center" role="document">
         <div class="modal-content modal-content-demo">
@@ -95,13 +126,13 @@
                                                     <img src="{{ $category->img }}" alt="" class="cart-img text-center">
                                                 </div>
                                             </td>
-                                            <td>{{ $category->name }}</td>
-                                            <td class="fw-bold">{{ $category->description }}</td>
+                                            <td class="fw-bold">{{ $category->name }}</td>
+                                            <td>{{ $category->description }}</td>
 
                                             <td>
-                                                <div class=" d-flex g-2">
+                                                <div class="d-flex g-2">
 
-                                                    <a class="btn text-secondary bg-secondary-transparent btn-icon py-1 me-2" data-bs-toggle="tooltip" data-bs-original-title="Edit"><span class="bi bi-heart fs-16"></span></a>
+                                                    <a class="btn text-secondary bg-secondary-transparent btn-icon py-1 me-2 update_category" data-bs-toggle="modal" data-bs-target="#updateCategoryModal" data-bs-original-title="Edit" data-id-category="{{ $category->id }}" data-name-category="{{ $category->name }}" data-desc-category="{{ $category->description }}"><span class="bi bi-pencil fs-16"></span></a>
                                                     <a class="btn text-danger bg-danger-transparent btn-icon py-1 delete_category" data-bs-toggle="modal" data-bs-target="#deleteCategoryModal" data-bs-original-title="Delete" data-id-category="{{ $category->id }}"><span class="bi bi-trash fs-16"></span></a>
                                                 </div>
                                             </td>
@@ -170,14 +201,13 @@
     </div>
 </div>
 <script>
-    let categories = document.querySelectorAll('.delete_category');
+    let categories_del = document.querySelectorAll('.delete_category');
 
-    for (category of categories) {
+    for (category of categories_del) {
         category.addEventListener('click', function(evt) {
             evt.preventDefault();
             let link = null;
 
-            console.log(evt.path);
 
             for (let item of evt.path) {
                 if (item.tagName == 'A' && item.classList.contains('delete_category')) {
@@ -188,6 +218,32 @@
 
             if (link != null)
                 document.querySelector("#deleteCategoryModal .category_id").value = link.getAttribute("data-id-category");
+        })
+    }
+
+    let categories_update = document.querySelectorAll('.update_category');
+
+    for (category of categories_update) {
+        category.addEventListener('click', function(evt) {
+            evt.preventDefault();
+            let link = null;
+
+
+            for (let item of evt.path) {
+                if (item.tagName == 'A' && item.classList.contains('update_category')) {
+                    link = item;
+                    break;
+                }
+                
+            }
+            console.log();
+            
+
+            if (link != null){
+                document.querySelector("#updateCategoryModal .category_id").value = link.getAttribute("data-id-category");
+                document.querySelector("#updateCategoryModal .category_name").value = link.getAttribute("data-name-category");
+                document.querySelector("#updateCategoryModal .category_desc").value = link.getAttribute("data-desc-category");
+            }
         })
     }
 </script>
