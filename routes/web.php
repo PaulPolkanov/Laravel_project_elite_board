@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+#Socialzone
 Route::controller(IndexController::class)->group(function(){
     Route::get('/', 'IndexAction')->name('Home');
     Route::get('/category/{id}', "CategoryAction", function ($id){
@@ -23,3 +24,12 @@ Route::controller(IndexController::class)->group(function(){
         return $id;
     });
 });
+
+#End social zone
+
+#Client's zone
+Route::controller(ClientController::class)->group(function(){
+
+});
+
+#Client's zone

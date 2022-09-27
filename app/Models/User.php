@@ -11,6 +11,12 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    public function role(){
+        return $this->belongsTo('App\Models\Role', 'id_role');
+    }
+    public function boards(){
+        return $this->hasMany('App\Models\Board', 'id_user');
+    }
 
     /**
      * The attributes that are mass assignable.
