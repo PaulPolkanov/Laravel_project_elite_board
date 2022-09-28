@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AdminController;
-
-
 use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
