@@ -92,9 +92,9 @@
                     </div>
 
                     <div class="header-menu col-xs-8 col-md-8 text-right">
-                        <a class="btn-shop bl-inl al-mid c-20 hidden-xsm" href="/shops/">Магазины</a>
-                        <a class="btn-notepad bl-inl al-mid c-20" title="Избранных объявлений: 0" href="/notepad/"><span class="n_count">0</span></a>
-                        <a class="btn-user hidden-xs bl-inl al-mid c-20 br3" href="/users/login/">Личный кабинет</a>
+                        <a class="btn-shop bl-inl al-mid c-20 hidden-xsm" href="/shops">Магазины</a>
+                        <a class="btn-notepad bl-inl al-mid c-20" title="Избранных объявлений: 0" href="/"><span class="n_count">0</span></a>
+                        <a class="btn-user hidden-xs bl-inl al-mid c-20 br3" href="/lk-login">Личный кабинет</a>
                         <a class="btn btn-primary btn-add" href="/add/">Подать объявление</a>
                         <a href="#" class="theme-type th-d bl-inl al-mid br100" data-id="dark" data-toggle="tooltip" data-placement="bottom" title="Тёмная тема"></a>
                     </div>

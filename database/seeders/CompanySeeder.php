@@ -18,8 +18,6 @@ class CompanySeeder extends Seeder
         $data = [];
         $nameData =['Запчасти ALL'];
         $contact_personData =['Артём'];
-        $phone_numberData =['+79200000045'];
-        $emailData =['example@ya.ru'];
         $about_companyData =['Интернет-магазин б/у и новых автозапчастей.
         Отправляем в любой город РФ!
         БЕСПЛАТНАЯ ДОСТАВКА до транспортной компании!
@@ -34,8 +32,6 @@ class CompanySeeder extends Seeder
             $randArr = [
                 'title' => $nameData[$i],
                 'contact_person' => $contact_personData[$i],
-                'phone_number' => $phone_numberData[$i],
-                'email' => $emailData[$i],
                 'about_company' => $about_companyData[$i],
                 'work_schedule' => $work_scheduleData[$i],
                 'delivery_info' => $delivery_infoData[$i],

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ClientController;
+use Illuminate\Routing\Route as RoutingRoute;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +31,16 @@ Route::controller(IndexController::class)->group(function(){
 
 #Client's zone
 Route::controller(ClientController::class)->group(function(){
+    Route::get('/loginLK', 'loginAction');
+    Route::post('/loginPostLk', 'loginPostAction');
+    
+    // Route::get('/lk-logup', 'logupAction')->name('lk-logup');
+    // Route::middleware([LoginLk::class])->group(function () {
+    //     Route::get('/lk-logout', 'logoutAction')->name('lk-logout');
 
+    //     Route::get('/lk', 'profileAction')->name('profile');
+    //     Route::get('/favorit-boards', 'FavoriteBoardAction')->name('favorite_board');
+    // });
 });
 
-#Client's zone
+#End Client's zone

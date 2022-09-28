@@ -17,6 +17,9 @@ class User extends Authenticatable
     public function boards(){
         return $this->hasMany('App\Models\Board', 'id_user');
     }
+    public function company(){
+        return $this->hasOne(Company::class, 'id_company');
+    }
 
     /**
      * The attributes that are mass assignable.

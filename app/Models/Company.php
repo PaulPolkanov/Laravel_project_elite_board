@@ -8,4 +8,7 @@
         public function boards(){
             return $this->hasMany('App\Models\Board', 'id_company');
         }
+        public function user(){
+            return $this->hasOne(User::class, 'id_company');
+        }
     }
