@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ClientController;
+use App\Http\Middleware\LogInCheck;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,16 +33,16 @@ Route::controller(IndexController::class)->group(function(){
 
 #Client's zone
 Route::controller(ClientController::class)->group(function(){
-    Route::get('/loginLK', 'loginAction');
+    Route::get('/loginLK', 'loginAction')->name('loginlk');
     Route::post('/loginPostLk', 'loginPostAction');
     
-    // Route::get('/lk-logup', 'logupAction')->name('lk-logup');
-    // Route::middleware([LoginLk::class])->group(function () {
-    //     Route::get('/lk-logout', 'logoutAction')->name('lk-logout');
+    Route::get('/lk-logup', 'logupAction')->name('lk-logup');
+    Route::middleware([LogInCheck::class])->group(function () {
+        Route::get('/lk-logout', 'logoutAction')->name('lk-logout');
 
-    //     Route::get('/lk', 'profileAction')->name('profile');
-    //     Route::get('/favorit-boards', 'FavoriteBoardAction')->name('favorite_board');
-    // });
+        Route::get('/lk', 'profileAction')->name('profile');
+        Route::get('/favorit-boards', 'FavoriteBoardAction')->name('favorite_board');
+    });
 });
 
 #End Client's zone

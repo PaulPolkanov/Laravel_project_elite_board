@@ -34,6 +34,8 @@
             }
         }
     </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="https://easy.elite-board.org/templates/easy/images/favicon.png" type="image/png">
     <title>Магазины в регионе Россия, Москва / Easy в регионе Россия, Москва</title>
     <link href="/templates/easy/css/bootstrap.min.css" rel="stylesheet">
@@ -78,7 +80,7 @@
 
         <div class="header-top">
             <div class="container text-right visible-xs">
-                <a class="mob-shop bl-inl al-mid" href="/shops/"></a><a class="btn-user bl-inl al-mid c-20" href="/users/login/">Личный кабинет</a>
+                <a class="mob-shop bl-inl al-mid" href="/loginLK"></a><a class="btn-user bl-inl al-mid c-20" href="/loginLK">Личный кабинет</a>
             </div>
         </div>
 
@@ -94,7 +96,7 @@
                     <div class="header-menu col-xs-8 col-md-8 text-right">
                         <a class="btn-shop bl-inl al-mid c-20 hidden-xsm" href="/shops">Магазины</a>
                         <a class="btn-notepad bl-inl al-mid c-20" title="Избранных объявлений: 0" href="/"><span class="n_count">0</span></a>
-                        <a class="btn-user hidden-xs bl-inl al-mid c-20 br3" href="/lk-login">Личный кабинет</a>
+                        <a class="btn-user hidden-xs bl-inl al-mid c-20 br3" href="/loginLK">Личный кабинет</a>
                         <a class="btn btn-primary btn-add" href="/add/">Подать объявление</a>
                         <a href="#" class="theme-type th-d bl-inl al-mid br100" data-id="dark" data-toggle="tooltip" data-placement="bottom" title="Тёмная тема"></a>
                     </div>
@@ -336,6 +338,8 @@
             });
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
     <div class="autocomplete-suggestions" style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
     <div class="autocomplete-suggestions" style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
 </body>

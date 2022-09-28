@@ -32,6 +32,8 @@ class IndexController extends Controller
         if(!$board){
             return abort(404);
         }
+        dd($board->images
+    );
         //dd($boards);
         return view('pages.board', compact('template', 'board'));
     } 

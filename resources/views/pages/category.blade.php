@@ -93,7 +93,7 @@
             <div class="offer-photo bl-cell al-top pos-rel">
             <div class="ov-h br3 pos-rel imgLiquidFill imgLiquid imgLiquid_bgSize imgLiquid_ready" style="background-image: url(&quot;/uploads/usr/0/ts_f3885b82302507da428b878abd73281c_35_3.webp&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
             <a title="Диски колесные алюминиевые R17-20" href="/board/{{$board->id}}" style="display: block; width: 100%; height: 100%;">
-            <img alt="Диски колесные алюминиевые R17-20" src="/uploads/usr/0/ts_f3885b82302507da428b878abd73281c_35_3.webp" style="display: none;">
+            <img alt="Диски колесные алюминиевые R17-20" src="/storage/img/boards_images/" style="display: none;">
             </a></div>
             <span class="photo-count pos-abs br3 s13 c-f"><span class="glyphicon glyphicon-camera"></span> 3</span></div>  
             

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class LoginLk
+class LogInCheck
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class LoginLk
     public function handle(Request $request, Closure $next)
     {
         if(!Auth::check()){
-            return redirect()->route('/lk-login');
+            return redirect()->route('/loginlk');
         }
         return $next($request);
     }

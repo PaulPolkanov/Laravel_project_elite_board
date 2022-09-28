@@ -6,7 +6,7 @@ use App\Http\Validators\ClientValidator;
 use App\Models\Board;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class ClientController extends Controller
@@ -17,11 +17,9 @@ class ClientController extends Controller
         return view('pages.client.login', compact('template'));
     }
     public function loginPostAction(Request $request){
-        dd($request);
         $validator = ClientValidator::login($request);
         if($validator->fails()){
-            //dd('here');
-            return redirect()->route('profile');
+            return redirect()->route('loginlk');
         }
         if(Auth::attempt([
             'email' => $request->email,
@@ -29,14 +27,16 @@ class ClientController extends Controller
             return redirect()->route('profile');
         }
         else{
-            return redirect()->route('profile');
+            return redirect()->route('loginlk');
         }
     }
     public function logoutAction(){
 
     }
     public function profileAction(){
-        dd(Auth::user());
+        $template = $this->template;
+        $user = Auth::user();
+        return view('pages.client.profile', compact('template', 'user'));
     }
     public function FavoriteBoardAction(){
 
