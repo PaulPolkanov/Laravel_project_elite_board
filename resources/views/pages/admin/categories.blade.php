@@ -7,18 +7,23 @@
             <div class="modal-header">
                 <h6 class="modal-title">Редактирование категории</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">×</span></button>
             </div>
-            <form action="/admin/update_category" method="post">
+            <form action="/admin/update_category" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-                    <input class="category_id" name="category_id" type="hidden"  value="" >
+                    <input class="category_id" name="category_id" type="hidden" value="">
                     <div class="wrap-input100 validate-input input-group">
 
                         <input class="form-control ms-0 category_name" name="category_name" type="text" value="">
 
                     </div>
-                    <div class="validate-input textarea-group">
+                    <div class="wrap-input100 validate-input textarea-group">
 
                         <textarea class="form-control ms-0 category_desc" name="category_desc" value=""></textarea>
+
+                    </div>
+                    <div class="validate-input input-group">
+
+                        <input class="form-control ms-0" type="file" name="img">
 
                     </div>
 
@@ -123,7 +128,7 @@
                                         <tr>
                                             <td>
                                                 <div class="text-center">
-                                                    <img src="{{ $category->img }}" alt="" class="cart-img text-center">
+                                                    <img src="/storage/images/{{ $category->img }}" alt="" class="cart-img text-center">
                                                 </div>
                                             </td>
                                             <td class="fw-bold">{{ $category->name }}</td>
@@ -162,7 +167,7 @@
                             <div class="card-title">Add category</div>
                         </div>
 
-                        <form action="/admin/add_category" method="post">
+                        <form action="/admin/add_category" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body py-2">
 
@@ -178,12 +183,17 @@
                                         <input class="form-control ms-0" name="name" type="text" placeholder="Name category">
 
                                     </div>
-                                    <div class="validate-input input-group">
+                                    <div class="wrap-input100 validate-input input-group">
 
                                         <textarea class="form-control ms-0" name="description" placeholder="Description"></textarea>
 
                                     </div>
 
+                                    <div class="validate-input input-group">
+
+                                        <input class="form-control ms-0" type="file" name="img">
+
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -234,12 +244,12 @@
                     link = item;
                     break;
                 }
-                
+
             }
             console.log();
-            
 
-            if (link != null){
+
+            if (link != null) {
                 document.querySelector("#updateCategoryModal .category_id").value = link.getAttribute("data-id-category");
                 document.querySelector("#updateCategoryModal .category_name").value = link.getAttribute("data-name-category");
                 document.querySelector("#updateCategoryModal .category_desc").value = link.getAttribute("data-desc-category");

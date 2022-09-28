@@ -80,12 +80,12 @@ class AdminController extends Controller
 			return redirect()->route('admin_categories')->withErrors($validator)->with('error', 'Ошибка. Не удалось добавить категорию!');
 		}
 
-        
+        $request->img->store('/public/images');
 
         $category = new Category;
 
         $category->name = $request->name;
-        $category->img = 'you.png';
+        $category->img = $request->img->hashName();
         $category->description = $request->description;
         $category->save();
 
@@ -114,11 +114,13 @@ class AdminController extends Controller
 			return redirect()->route('admin_categories')->withErrors($validator)->with('error', 'Ошибка. Не удалось изменить категорию!');
 		}
 
+        $request->img->store('/public/images');
+
         $category = Category::where('id', $request->category_id)->first();
         
         $category->name = $request->category_name;
         $category->description = $request->category_desc;
-
+        $category->img = $request->img->hashName();
     
         $category->save();
 
