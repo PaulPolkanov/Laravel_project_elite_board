@@ -28,6 +28,8 @@ Route::controller(IndexController::class)->group(function(){
     Route::get('/board/{id}', "BoardAction", function ($id){
         return $id;
     });
+    Route::get('/add_board_page', 'AddBoardAction')->name('add_board_page');
+    Route::post('/add_board_handle', 'AddBoardHandleAction');
 });
 
 #End social zone
