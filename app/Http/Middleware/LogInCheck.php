@@ -17,7 +17,7 @@ class LogInCheck
     public function handle(Request $request, Closure $next)
     {
         if(!Auth::check()){
-            return redirect()->route('/loginlk');
+            return redirect()->route('loginlk');
         }
         return $next($request);
     }

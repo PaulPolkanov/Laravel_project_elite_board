@@ -18,7 +18,8 @@ class IndexController extends Controller
 
         $template = $this->template;
         $categories = Category::get();
-        return view('pages.home', compact('template', 'categories'));
+        $boards = Board::get();
+        return view('pages.home', compact('template', 'categories', 'boards'));
     }
     public function CategoryAction($id){
         $template = $this->template;
@@ -36,43 +37,8 @@ class IndexController extends Controller
         if(!$board){
             return abort(404);
         }
-        dd($board->images
-    );
+       // dd($board->images);
         //dd($boards);
         return view('pages.board', compact('template', 'board'));
     } 
-
-    public function AddBoardAction(){
-
-        $template = $this->template;
-
-        $categories = Category::get();
-
-        return view('pages.addBoard', compact('template', 'categories'));
-    }
-
-    public function AddBoardHandleAction(Request $request){
-
-        
-        $validator = AddBoardValidator::addBoard($request);
-
-        if($validator->fails()){
-            return redirect()->route('add_board_page')->withErrors($validator)->with('error', 'Ошибка. Объявление не добавлено!');
-        }
-        
-        $board = new Board;
-
-        $board->title = $request->title;
-        $board->price = $request->price;
-        $board->id_user = 1;//костыль
-        $board->id_category = $request->category;
-        $board->address = $request->address;
-        $board->description = $request->description;
-        $board->delivery_type_id = 1;//костыль
-
-        $board->save();
-
-        return redirect()->route('add_board_page')->with('success', 'Объявление успешно добавлено!');
-
-    }
 }

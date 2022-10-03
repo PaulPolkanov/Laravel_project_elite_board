@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $data = [];
-        $nameData =['Superadmin', 'Admin', 'User'];
+        $nameData =['Superadmin', 'Admin', 'User', 'Shop'];
         
         for($i=0; $i < count($nameData); $i++) {
             $randArr = [

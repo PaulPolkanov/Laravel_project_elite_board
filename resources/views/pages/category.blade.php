@@ -9,8 +9,8 @@
        
       
       
-    <h1>Автотранспорт</h1>
-    <p style="margin-bottom: 15px;">Актуальная база объявлений о продаже новых и подержанных машин</p>
+    <h1>{{$category->name}}</h1>
+    <p style="margin-bottom: 15px;">{{$category->description}}</p>
     <div id="search_form_cat" class="block_search pos-rel">
     <div class="btn btn-default colsearch visible-xs" data-toggle="collapse" data-target="#colsearch">Все параметры</div>
     <div id="colsearch" class="collapse in"><form id="block_search" name="block_search" method="GET" action="/search/">
@@ -91,17 +91,15 @@
             <div id="message_30" class="offer bl-tb">
                 
             <div class="offer-photo bl-cell al-top pos-rel">
-            <div class="ov-h br3 pos-rel imgLiquidFill imgLiquid imgLiquid_bgSize imgLiquid_ready" style="background-image: url(&quot;/uploads/usr/0/ts_f3885b82302507da428b878abd73281c_35_3.webp&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-            <a title="Диски колесные алюминиевые R17-20" href="/board/{{$board->id}}" style="display: block; width: 100%; height: 100%;">
-            <img alt="Диски колесные алюминиевые R17-20" src="/storage/img/boards_images/" style="display: none;">
-            </a></div>
-            <span class="photo-count pos-abs br3 s13 c-f"><span class="glyphicon glyphicon-camera"></span> 3</span></div>  
+            <div class="ov-h br3 pos-rel imgLiquidFill imgLiquid imgLiquid_bgSize imgLiquid_ready" style="background-image: url(&quot;/storage/img/boards_images/{{$board->images[0]->name}}&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+            <img alt="Диски колесные алюминиевые R17-20" src="/storage/img/boards_images/{{$board->images[0]->name}}"></div>
+            <span class="photo-count pos-abs br3 s13 c-f"><span class="glyphicon glyphicon-camera"></span> {{count($board->images)}} </span></div>  
             
             <div class="offer-title bl-cell al-top pos-rel">
             <h3><a class="f-m a-hov" title="Диски колесные алюминиевые R17-20" href="/board/{{$board->id}}">{{$board->title}}</a></h3>
-            <div class="offer-location s13 f-l c-7">Автозапчасти и принадлежности<br> Москва 
+            <div class="offer-location s13 f-l c-7">{{$board->user->name}}<br> Москва 
             <div class="offer-date"></div></div>
-            <div class="magazin-l"><a class="btn btn-default s13" href="/shops/7-zapchasti-all.html" title="Запчасти ALL">Запчасти ALL</a></div>  
+            <div class="magazin-l"><a class="btn btn-default s13" href="/shops/7-zapchasti-all.html" title="Запчасти ALL">{{$board->user->name}}</a></div>  
             </div>
             
             <div class="offer-price bl-cell al-top pos-rel text-right">

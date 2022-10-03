@@ -27,13 +27,11 @@ Route::controller(IndexController::class)->group(function(){
     Route::get('/board/{id}', "BoardAction", function ($id){
         return $id;
     });
-    Route::get('/add_board_page', 'AddBoardAction')->name('add_board_page');
-    Route::post('/add_board_handle', 'AddBoardHandleAction');
 });
 
-#End social zone
+#End social routes
 
-#Client's zone
+#Client's routes
 Route::controller(ClientController::class)->group(function(){
     Route::get('/loginLK', 'loginAction')->name('loginlk');
     Route::post('/loginPostLk', 'loginPostAction');
@@ -44,9 +42,14 @@ Route::controller(ClientController::class)->group(function(){
 
         Route::get('/lk', 'profileAction')->name('profile');
         Route::get('/favorit-boards', 'FavoriteBoardAction')->name('favorite_board');
+
+        Route::get('/add_board_page', 'AddBoardAction')->name('add_board_page');
+        Route::post('/add_board_handle', 'AddBoardHandleAction');
     });
 });
-#Client's zone
+#End Client's routes
+
+#
 Route::controller(AdminController::class)->group(function(){
 
     Route::get('/admin/login', 'LoginAction')->name('admin_login');
